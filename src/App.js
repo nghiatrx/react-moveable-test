@@ -1,24 +1,18 @@
 import React from "react";
-import MoveableItem from "./MoveableItem";
-import styled from "styled-components";
+import { useSelector } from "react-redux";
+import Block from "./components/Block";
+import MoveableController from "./components/MoveableController";
 
 function App() {
+  const blocks = useSelector((state) => state.editor.blocks);
   return (
     <div className="App">
-      <MoveableItem container={document.body}>
-        <TextItem>aaaaaaa</TextItem>
-      </MoveableItem>
-
-      <MoveableItem container={document.body}>
-        <TextItem>bbbbb</TextItem>
-      </MoveableItem>
+      <MoveableController />
+      {blocks.map((block, index) => (
+        <Block block={block} index={index} key={index} />
+      ))}
     </div>
   );
 }
-
-const TextItem = styled.div`
-  width: 100px;
-  height: 100px;
-`;
 
 export default App;
