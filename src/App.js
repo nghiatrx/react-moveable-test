@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import MoveableItem from "./MoveableItem";
+import styled from "styled-components";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MoveableItem container={document.body}>
+        <TextItem>aaaaaaa</TextItem>
+      </MoveableItem>
+
+      <MoveableItem container={document.body}>
+        <TextItem>bbbbb</TextItem>
+      </MoveableItem>
     </div>
   );
 }
+
+const TextItem = styled.div`
+  width: 100px;
+  height: 100px;
+`;
 
 export default App;
